@@ -18,7 +18,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "npm run build && scp -r ./build/* tripletenuser@domainname.example.com:/home/tripletenuser/around-frontend"
+    "deploy": "npm run build && scp -r ./build/vmhoster.chickenkiller.com:/* home/contactjoseanaraujo/frontend"
   },
   "eslintConfig": {
     "extends": [
