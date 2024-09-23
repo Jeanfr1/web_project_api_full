@@ -1,4 +1,4 @@
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { CurrentUserContext } from "../contexts/CurrentUserContext.js";
 import Header from "./Header.js";
@@ -140,32 +140,30 @@ function App() {
             userEmail={userEmail}
             handleLogout={handleLogout}
           />
-          <Switch>
-            <Route path="/signup">
-              <Register />
-            </Route>
-            <Route path="/signin">
-              <Login handleLogin={handleLogin} />
-            </Route>
-            <ProtectedRoute
-              path="/"
-              loggedIn={loggedIn}
-              component={() => (
-                <Main
-                  cards={cards}
-                  onEditAvatarClick={() => setEditAvatarPopupOpen(true)}
-                  onEditProfileClick={() => setEditProfilePopupOpen(true)}
-                  onAddPlaceClick={() => setAddPlacePopupOpen(true)}
-                  onCardClick={(card) => setSelectedCard(card)}
-                  onCardDelete={handleCardDelete}
-                  onCardLike={handleCardLike}
-                />
-              )}
+          <Routes>
+            <Route path="/signup" element={<Register />} />
+            <Route
+              path="/signin"
+              element={<Login handleLogin={handleLogin} />}
             />
-            <Route path="*">
-              <Redirect to="/signin" />
-            </Route>
-          </Switch>
+            <Route
+              path="/"
+              element={
+                <ProtectedRoute loggedIn={loggedIn}>
+                  <Main
+                    cards={cards}
+                    onEditAvatarClick={() => setEditAvatarPopupOpen(true)}
+                    onEditProfileClick={() => setEditProfilePopupOpen(true)}
+                    onAddPlaceClick={() => setAddPlacePopupOpen(true)}
+                    onCardClick={(card) => setSelectedCard(card)}
+                    onCardDelete={handleCardDelete}
+                    onCardLike={handleCardLike}
+                  />
+                </ProtectedRoute>
+              }
+            />
+            <Route path="*" element={<Navigate to="/signin" />} />
+          </Routes>
           <EditAvatarPopup
             isOpen={isEditAvatarPopupOpen}
             onClose={closeAllPopups}
