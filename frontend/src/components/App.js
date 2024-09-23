@@ -1,18 +1,18 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { CurrentUserContext } from "../contexts/CurrentUserContext.js";
-import Header from "./Header.js";
-import Main from "./Main.js";
-import Footer from "./Footer.js";
-import ImagePopup from "./ImagePopup.js";
-import api from "../utils/api.js";
-import EditProfilePopup from "./EditProfilePopup.js";
-import EditAvatarPopup from "./EditAvatarPopup.js";
-import AddPlacePopup from "./AddPlacePopup.js";
-import Login from "./Login.js";
-import Register from "./Register.js";
-import ProtectedRoute from "./ProtectedRoute.js";
-import * as auth from "../utils/auth.js";
+import Header from "./Header";
+import Main from "./Main";
+import Footer from "./Footer";
+import ImagePopup from "./ImagePopup";
+import api from "../utils/api";
+import EditProfilePopup from "./EditProfilePopup";
+import EditAvatarPopup from "./EditAvatarPopup";
+import AddPlacePopup from "./AddPlacePopup";
+import Login from "./Login";
+import Register from "./Register";
+import ProtectedRoute from "./ProtectedRoute";
+import * as auth from "../utils/auth";
 
 function App() {
   const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = useState(false);
@@ -148,19 +148,7 @@ function App() {
             />
             <Route
               path="/"
-              element={
-                <ProtectedRoute loggedIn={loggedIn}>
-                  <Main
-                    cards={cards}
-                    onEditAvatarClick={() => setEditAvatarPopupOpen(true)}
-                    onEditProfileClick={() => setEditProfilePopupOpen(true)}
-                    onAddPlaceClick={() => setAddPlacePopupOpen(true)}
-                    onCardClick={(card) => setSelectedCard(card)}
-                    onCardDelete={handleCardDelete}
-                    onCardLike={handleCardLike}
-                  />
-                </ProtectedRoute>
-              }
+              element={<ProtectedRoute loggedIn={loggedIn} component={Main} />}
             />
             <Route path="*" element={<Navigate to="/signin" />} />
           </Routes>
