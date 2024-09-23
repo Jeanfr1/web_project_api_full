@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // Substituí useHistory por useNavigate
 import InfoTooltip from "./InfoTooltip";
 import * as auth from "../utils/auth";
 import { FormValidator, formConfigAuth } from "../utils/formValidator";
@@ -10,7 +10,7 @@ const Login = ({ handleLogin }) => {
   const [showModal, setShowModal] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [message, setMessage] = useState("");
-  const history = useHistory();
+  const navigate = useNavigate();
   const formRef = useRef();
 
   const handleSubmit = (e) => {
@@ -19,7 +19,7 @@ const Login = ({ handleLogin }) => {
       .authorize(email, password)
       .then(() => {
         handleLogin(email);
-        history.push("/");
+        navigate("/");
         resetValidation();
       })
       .catch((error) => {

@@ -1,8 +1,8 @@
 import logo from "../images/vector.png";
-import { NavLink, useHistory, useLocation } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 
 function Header({ loggedIn, userEmail, handleLogout }) {
-  const history = useHistory();
+  const navigate = useNavigate();
   const location = useLocation();
 
   const isSignInPage = location.pathname === "/signup";
@@ -11,7 +11,7 @@ function Header({ loggedIn, userEmail, handleLogout }) {
   const signOut = () => {
     handleLogout();
     localStorage.removeItem("jwt");
-    history.push("/signin");
+    navigate("/signin");
   };
 
   const renderMenuItems = () => {
