@@ -8,9 +8,9 @@ async function getCards(req, res, next) {
       err.status = 500;
       throw err;
     }
-    res.send({ data: cards });
+    return res.send({ data: cards });
   } catch (err) {
-    next(err);
+    return next(err);
   }
 }
 
@@ -34,9 +34,9 @@ async function createCard(req, res, next) {
       throw err;
     }
 
-    res.send({ data: card });
+    return res.send({ data: card });
   } catch (err) {
-    next(err);
+    return next(err);
   }
 }
 
@@ -51,9 +51,9 @@ async function deleteCardById(req, res, next) {
       throw err;
     }
 
-    res.send({ message: "Card deletado com sucesso" });
+    return res.send({ message: "Card deletado com sucesso" });
   } catch (err) {
-    next(err);
+    return next(err);
   }
 }
 
@@ -72,9 +72,9 @@ async function likeCard(req, res, next) {
       throw err;
     });
 
-    res.send({ message: "Like com sucesso" });
+    return res.send({ data: card });
   } catch (err) {
-    next(err);
+    return next(err);
   }
 }
 
@@ -93,9 +93,9 @@ async function dislikeCard(req, res, next) {
       throw err;
     });
 
-    res.send({ message: "Dislike com sucesso" });
+    return res.send({ data: card });
   } catch (err) {
-    next(err);
+    return next(err);
   }
 }
 

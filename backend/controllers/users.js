@@ -13,9 +13,9 @@ async function getUsers(req, res, next) {
       err.status = 500;
       throw err;
     }
-    res.send({ data: users });
+    return res.send({ data: users });
   } catch (err) {
-    next(err);
+    return next(err);
   }
 }
 
@@ -27,9 +27,9 @@ async function getUserById(req, res, next) {
       err.status = 404;
       throw err;
     });
-    res.send({ data: user });
+    return res.send({ data: user });
   } catch (err) {
-    next(err);
+    return next(err);
   }
 }
 
@@ -41,9 +41,9 @@ async function getUserInfo(req, res, next) {
       err.statusCode = 404;
       throw err;
     });
-    res.send({ data: userData });
+    return res.send({ data: userData });
   } catch (err) {
-    next(err);
+    return next(err);
   }
 }
 
@@ -66,7 +66,7 @@ async function createUser(req, res, next) {
       password: hash,
     });
 
-    res.status(201).send({
+    return res.status(201).send({
       data: {
         name: user.name,
         about: user.about,
@@ -75,7 +75,7 @@ async function createUser(req, res, next) {
       },
     });
   } catch (err) {
-    next(err);
+    return next(err);
   }
 }
 
@@ -98,9 +98,9 @@ async function updateUserProfile(req, res, next) {
       throw err;
     });
 
-    res.send({ data: user });
+    return res.send({ data: user });
   } catch (err) {
-    next(err);
+    return next(err);
   }
 }
 
@@ -123,9 +123,9 @@ async function updateUserAvatar(req, res, next) {
       throw err;
     });
 
-    res.send({ data: user });
+    return res.send({ data: user });
   } catch (err) {
-    next(err);
+    return next(err);
   }
 }
 
@@ -146,9 +146,9 @@ async function login(req, res, next) {
       { expiresIn: "7d" }
     );
 
-    res.send({ token });
+    return res.send({ token });
   } catch (err) {
-    next(err);
+    return next(err);
   }
 }
 

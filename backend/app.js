@@ -49,10 +49,11 @@ app.use((req, res, next) => {
 
 app.use(requestLogger);
 
-app.get("/crash-test", () => {
+app.get("/crash-test", (req, res) => {
   setTimeout(() => {
     throw new Error("O servidor travará agora");
   }, 0);
+  return res.status(200).send("Crash test executado");
 });
 
 app.post(
