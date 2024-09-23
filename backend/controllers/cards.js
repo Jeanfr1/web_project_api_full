@@ -1,10 +1,10 @@
-const Card = require("../models/card");
+const Card = require('../models/card');
 
 async function getCards(req, res, next) {
   try {
-    const cards = await Card.find({}).populate("owner").sort({ createdAt: -1 });
+    const cards = await Card.find({}).populate('owner').sort({ createdAt: -1 });
     if (!cards) {
-      const err = new Error("Ocorreu um erro ao buscar cards");
+      const err = new Error('Ocorreu um erro ao buscar cards');
       err.status = 500;
       throw err;
     }
@@ -19,7 +19,7 @@ async function createCard(req, res, next) {
     const { name, link } = req.body;
 
     if (!name || !link) {
-      return res.status(400).send({ error: "Dados inválidos..." });
+      return res.status(400).send({ error: 'Dados inválidos...' });
     }
 
     const card = await Card.create({
@@ -29,7 +29,7 @@ async function createCard(req, res, next) {
     });
 
     if (!card) {
-      const err = new Error("Ocorreu um erro ao criar card");
+      const err = new Error('Ocorreu um erro ao criar card');
       err.status = 500;
       throw err;
     }
@@ -46,12 +46,12 @@ async function deleteCardById(req, res, next) {
     const card = await Card.findByIdAndDelete(cardId);
 
     if (!card) {
-      const err = new Error("Erro ao deletar este card");
+      const err = new Error('Erro ao deletar este card');
       err.status = 400;
       throw err;
     }
 
-    return res.send({ message: "Card deletado com sucesso" });
+    return res.send({ message: 'Card deletado com sucesso' });
   } catch (err) {
     return next(err);
   }
@@ -65,9 +65,9 @@ async function likeCard(req, res, next) {
     const card = await Card.findByIdAndUpdate(
       cardId,
       { $addToSet: { likes: userId } },
-      { new: true }
+      { new: true },
     ).orFail(() => {
-      const err = new Error("Card não encontrado");
+      const err = new Error('Card não encontrado');
       err.status = 404;
       throw err;
     });
@@ -86,9 +86,9 @@ async function dislikeCard(req, res, next) {
     const card = await Card.findByIdAndUpdate(
       cardId,
       { $pull: { likes: userId } },
-      { new: true }
+      { new: true },
     ).orFail(() => {
-      const err = new Error("Card não encontrado");
+      const err = new Error('Card não encontrado');
       err.status = 404;
       throw err;
     });
