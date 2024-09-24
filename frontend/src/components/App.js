@@ -148,7 +148,19 @@ function App() {
             />
             <Route
               path="/"
-              element={<ProtectedRoute loggedIn={loggedIn} component={Main} />}
+              element={
+                <ProtectedRoute loggedIn={loggedIn}>
+                  <Main
+                    cards={cards}
+                    onEditAvatarClick={() => setEditAvatarPopupOpen(true)}
+                    onEditProfileClick={() => setEditProfilePopupOpen(true)}
+                    onAddPlaceClick={() => setAddPlacePopupOpen(true)}
+                    onCardClick={(card) => setSelectedCard(card)}
+                    onCardDelete={handleCardDelete}
+                    onCardLike={handleCardLike}
+                  />
+                </ProtectedRoute>
+              }
             />
             <Route path="*" element={<Navigate to="/signin" />} />
           </Routes>
