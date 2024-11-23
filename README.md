@@ -1,11 +1,3 @@
-# Tripleten web_project_around_express
-
-Bootcamp Desenvolvimento Web - TripleTen
-
-<p align="center">
-  <img alt="Projeto Around - TripleTen" src=".github/thumbnail.jpg" width="100%">
-</p>
-
 ## 🚀 Technologies
 
 This project was developed using the following technologies:
