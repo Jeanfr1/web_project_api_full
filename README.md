@@ -21,7 +21,7 @@ Some improvements that can be implemented:
 - Add a GET route to retrieve cards by ID.
 - Add a feature allowing users to delete their accounts.
 
-## ⚙ ⚙ Instructions to Run Locally
+## ⚙  Instructions to Run Locally
 
 First Clone the repository to your local machine:
 
@@ -43,7 +43,7 @@ URL Base: [http://localhost:3000](http://localhost:3000)
 
 ### 🚦 Routes
 
-Faça requisições concatenando a URL base `http://localhost:3000` ou `https://api.around.herisonpereira.com.br`
+Faça requisições concatenando a URL base `http://localhost:3000`
 
 #### Auth
 
