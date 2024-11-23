@@ -1,74 +1,121 @@
-web_project_api_full
+📜 Description
+This project focuses on developing a robust API using Node.js and Express.js to support a web application. 
+The platform allows users to register, log in, add, delete, and like photos, as well as edit their profile information and avatar.
 
-Descrição
+The front-end was built using React, with a fully refactored codebase that includes a polished registration and login page with protected routes. 
+Additionally, the project integrates a RESTful API to manage data and perform CRUD operations efficiently.
 
-Este projeto consiste na criação de uma API utilizando Node.js e Express.js para suportar uma página web onde os usuários podem se registrar, fazer login, adicionar, remover e curtir fotos, além de editar informações e o avatar de seus perfis.
+✨ Features
+State & Context Management: Efficient handling of states and context for popups, submissions, and card likes.
 
-A biblioteca React foi utilizada para o desenvolvimento do front-end do aplicativo. O código do projeto foi refatorado e uma página de registro e login com rotas protegidas foi adicionada. Além disso, foi implementada uma API para gerenciar os dados e realizar as operações CRUD.
+Navigation: Utilizes React Hooks like Route, Switch, withRouter, and useHistory for seamless page transitions.
 
-Funcionalidades
+Protected Routes: The main page is secured using the ProtectedRoute component, ensuring access is restricted to logged-in users.
 
-Estado e Contextos: Gerenciamento de estados e contexto para os botões de abertura e fechamento de popups, submit e like dos cartões.
-Navegação: Utilização de Hooks como Route, Switch, withRouter e useHistory para a navegação entre páginas.
-Rotas Protegidas: A página principal é protegida pelo componente ProtectedRoute, acessível apenas após o login.
-Componentes Informativos: Uso do componente Infotooltip para notificar o usuário sobre sucesso ou falha no registro.
-Autenticação: Implementação de autenticação via JWT, com login e registro através de POST, e persistência da sessão do usuário por meio de tokens.
-Criação de API: Implementação de uma API RESTful com esquemas e modelos para gerenciamento de cartões e usuários, além de manipulação centralizada de erros.
-Rotas e Controladores: Desenvolvimento de rotas para operações GET, POST, PUT, DELETE nos cartões e GET, PATCH para os usuários.
-Tecnologias Utilizadas
+User Notifications: Employs the Infotooltip component to provide feedback on registration success or failure.
 
-Back-end
-Node.js: Plataforma para o desenvolvimento de aplicações.
-Express: Framework web para o Node.js.
-MongoDB: Banco de dados NoSQL utilizado para armazenar os dados.
-Celebrate: Middleware para validação de dados.
-JWT: Para autenticação de usuários.
+Authentication: Implements JWT-based authentication with user registration and login via POST requests and session persistence through tokens.
 
-Front-end
+API Development: RESTful API with centralized error handling, designed to manage users and cards with schemas and models.
+
+Routes & Controllers: Comprehensive route structure for GET, POST, PUT, and DELETE operations on cards, as well as GET and PATCH for user profiles.
+🚀 Technologies Used
+Back-End
+
+Node.js: For building the server-side application.
+
+Express.js: Lightweight framework for handling routes and middleware.
+
+MongoDB: NoSQL database for storing user and card data.
+
+Celebrate: Middleware for request data validation.
+
+JWT (JSON Web Token): For user authentication and session management.
+
+Front-End
+
 HTML
 CSS
 JavaScript/JSX
 React
-Requisitos
 
-Antes de começar, certifique-se de ter as seguintes ferramentas instaladas:
+📋 Requirements
 
-Node.js (versão 14 ou superior)
-npm (versão 6 ou superior)
-MongoDB rodando localmente ou remotamente
+Before starting, make sure you have the following installed:
 
-Instalação
+Node.js: Version 14 or higher.
 
-Siga os passos abaixo para rodar o projeto em sua máquina local.
+npm: Version 6 or higher.
 
-1. Clone o repositório para o seu ambiente local:
-   git clone https://github.com/seuusuario/sua-api.git
+MongoDB: Running locally or on a remote server.
 
-2. Navegue até o diretório do projeto:
-   cd sua-api
+This project combines modern web development practices with a focus on user authentication, secure data handling, and intuitive navigation, making it a scalable and user-friendly solution.
 
-3. Instale as dependências necessárias:
-   npm install
+🧪 Potential Enhancements
 
-4. Configure o arquivo .env:
-   Crie um arquivo .env na raiz do projeto com as seguintes variáveis de ambiente
+Here are some ideas for future improvements:
 
-5. Inicie o MongoDB
+Add a GET route to fetch cards by ID.
 
-6. Execute o servidor da API:
-   O servidor será iniciado em http://localhost:3001.
+Implement the ability for users to delete their accounts.
 
-Testando a API:
-Você pode testar os endpoints da API utilizando ferramentas como Postman ou Insomnia. Exemplo de uma requisição POST para o endpoint de login:
-POST http://localhost:3001/signin
-Com o seguinte corpo da requisição:
-{
-"email": "seuemail@example.com",
-"password": "suasenha"
-}
 
-Scripts Disponíveis
+⚙ Local Setup Instructions
 
-npm run dev: Inicia o servidor em modo de desenvolvimento com nodemon.
-npm run lint: Executa o ESLint para verificar o estilo de código.
-npm run lint -- --fix: Corrige automaticamente problemas de formatação com o ESLint.
+Clone the repository to your local machine:
+git clone <repository-url>
+
+Ensure you have the latest version of Node.js installed on your system.
+
+Open your terminal, navigate to the project directory, and install all dependencies:
+
+npm install
+
+Once dependencies are installed, start the development server with:
+
+npm run dev
+
+If everything is set up correctly, the server will be ready to use.
+
+Base URL: http://localhost:3000
+
+
+🚦 API Routes
+
+Make requests by appending the endpoints below to the base URL (http://localhost:3000).
+
+Auth
+
+POST /signup – Register a new user.
+
+POST /signin – Log in an existing user.
+
+Users
+
+
+GET /users – Fetch all users.
+
+GET /users/{userId} – Fetch a user by ID.
+
+GET /users/me – Fetch the logged-in user’s details.
+
+PATCH /users/me – Update the logged-in user’s profile.
+
+PATCH /users/me/avatar – Update the logged-in user’s avatar.
+
+Cards
+
+
+GET /cards – Fetch all cards.
+
+POST /cards – Create a new card.
+
+DELETE /cards/{cardId} – Delete a card by ID.
+
+PUT /cards/{cardId}/likes – Like a card.
+
+DELETE /cards/{cardId}/likes – Unlike a card.
+
+
+This API is live and ready to use. Feel free to explore its capabilities!
+
