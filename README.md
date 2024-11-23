@@ -1,121 +1,77 @@
-📜 Description
-This project focuses on developing a robust API using Node.js and Express.js to support a web application. 
-The platform allows users to register, log in, add, delete, and like photos, as well as edit their profile information and avatar.
+# Tripleten web_project_around_express
 
-The front-end was built using React, with a fully refactored codebase that includes a polished registration and login page with protected routes. 
-Additionally, the project integrates a RESTful API to manage data and perform CRUD operations efficiently.
+Bootcamp Desenvolvimento Web - TripleTen
 
-✨ Features
-State & Context Management: Efficient handling of states and context for popups, submissions, and card likes.
+<p align="center">
+  <img alt="Projeto Around - TripleTen" src=".github/thumbnail.jpg" width="100%">
+</p>
 
-Navigation: Utilizes React Hooks like Route, Switch, withRouter, and useHistory for seamless page transitions.
+## 🚀 Technologies
 
-Protected Routes: The main page is secured using the ProtectedRoute component, ensuring access is restricted to logged-in users.
+This project was developed using the following technologies:
 
-User Notifications: Employs the Infotooltip component to provide feedback on registration success or failure.
+- JavaScript
+- Node
+- Express
+- MongoDB e Mongoose
+- JWT
+- Git e GitHub
+- Deploy com VM Google Cloud
 
-Authentication: Implements JWT-based authentication with user registration and login via POST requests and session persistence through tokens.
+## 💻 Project Overview
 
-API Development: RESTful API with centralized error handling, designed to manage users and cards with schemas and models.
+This project was created during to consolidate learnings about building APIs with Node.js, Express.js, and MongoDB using Mongoose.
 
-Routes & Controllers: Comprehensive route structure for GET, POST, PUT, and DELETE operations on cards, as well as GET and PATCH for user profiles.
-🚀 Technologies Used
-Back-End
+## 🧪 Potential Improvements
 
-Node.js: For building the server-side application.
+Some improvements that can be implemented:
 
-Express.js: Lightweight framework for handling routes and middleware.
+- Add a GET route to retrieve cards by ID.
+- Add a feature allowing users to delete their accounts.
 
-MongoDB: NoSQL database for storing user and card data.
+## ⚙ ⚙ Instructions to Run Locally
 
-Celebrate: Middleware for request data validation.
+First Clone the repository to your local machine:
 
-JWT (JSON Web Token): For user authentication and session management.
+Ensure Node.js (latest version) is installed. Navigate to the project directory and install all dependencies:
 
-Front-End
-
-HTML
-CSS
-JavaScript/JSX
-React
-
-📋 Requirements
-
-Before starting, make sure you have the following installed:
-
-Node.js: Version 14 or higher.
-
-npm: Version 6 or higher.
-
-MongoDB: Running locally or on a remote server.
-
-This project combines modern web development practices with a focus on user authentication, secure data handling, and intuitive navigation, making it a scalable and user-friendly solution.
-
-🧪 Potential Enhancements
-
-Here are some ideas for future improvements:
-
-Add a GET route to fetch cards by ID.
-
-Implement the ability for users to delete their accounts.
-
-
-⚙ Local Setup Instructions
-
-Clone the repository to your local machine:
-git clone <repository-url>
-
-Ensure you have the latest version of Node.js installed on your system.
-
-Open your terminal, navigate to the project directory, and install all dependencies:
-
+```bash
 npm install
+```
 
-Once dependencies are installed, start the development server with:
+Start the development server:
 
+```bash
 npm run dev
+```
 
 If everything is set up correctly, the server will be ready to use.
 
-Base URL: http://localhost:3000
+URL Base: [http://localhost:3000](http://localhost:3000)
 
+### 🚦 Routes
 
-🚦 API Routes
+Faça requisições concatenando a URL base `http://localhost:3000` ou `https://api.around.herisonpereira.com.br`
 
-Make requests by appending the endpoints below to the base URL (http://localhost:3000).
+#### Auth
 
-Auth
+- `POST /signup`
+- `POST /signin`
 
-POST /signup – Register a new user.
+#### users
 
-POST /signin – Log in an existing user.
+- `GET /users`
+- `GET /users/{userId}`
+- `GET /users/me`
+- `PATCH /users/me`
+- `PATCH /users/me/avatar`
 
-Users
+#### cards
 
+- `GET /cards`
+- `POST /cards`
+- `DELETE /cards/{cardId}`
+- `PUT /cards/{cardId}/likes`
+- `DELETE /cards/{cardId}/likes`
 
-GET /users – Fetch all users.
-
-GET /users/{userId} – Fetch a user by ID.
-
-GET /users/me – Fetch the logged-in user’s details.
-
-PATCH /users/me – Update the logged-in user’s profile.
-
-PATCH /users/me/avatar – Update the logged-in user’s avatar.
-
-Cards
-
-
-GET /cards – Fetch all cards.
-
-POST /cards – Create a new card.
-
-DELETE /cards/{cardId} – Delete a card by ID.
-
-PUT /cards/{cardId}/likes – Like a card.
-
-DELETE /cards/{cardId}/likes – Unlike a card.
-
-
-This API is live and ready to use. Feel free to explore its capabilities!
 
